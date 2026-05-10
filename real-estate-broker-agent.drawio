@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="Dk_kyCSdDj4zohjRiuGa">
+    <mxGraphModel dx="1734" dy="854" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-1" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Aggregator /paid feeds" vertex="1">
+          <mxGeometry height="80" width="80" x="90" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-2" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="User uploads" vertex="1">
+          <mxGeometry height="80" width="80" x="90" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-3" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="web discovery/ scrapper" vertex="1">
+          <mxGeometry height="80" width="80" x="90" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-4" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="property DB&amp;nbsp;" vertex="1">
+          <mxGeometry height="210" width="210" x="252.5" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-6" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Third party tie-up/ broker uploads" vertex="1">
+          <mxGeometry height="80" width="80" x="90" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="weekly cleaning, dedupe, enrichment and verification" vertex="1">
+          <mxGeometry height="60" width="120" x="305" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Dai&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ly Property Freshness Score&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="305" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="MOAT - LLM, fresh inventory,&amp;nbsp;verified listings,&amp;nbsp;fast visits ,trust" vertex="1">
+          <mxGeometry height="60" width="730" x="90" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-12" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Services" vertex="1">
+          <mxGeometry height="600" width="200" x="580" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-15" edge="1" parent="LPX62Oq5mwzAFPM4AA_u-12" source="LPX62Oq5mwzAFPM4AA_u-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="LPX62Oq5mwzAFPM4AA_u-14" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-13" parent="LPX62Oq5mwzAFPM4AA_u-12" style="rounded=1;whiteSpace=wrap;html=1;" value="property search &amp;amp; finalization" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-23" edge="1" parent="LPX62Oq5mwzAFPM4AA_u-12" source="LPX62Oq5mwzAFPM4AA_u-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="LPX62Oq5mwzAFPM4AA_u-20" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-14" parent="LPX62Oq5mwzAFPM4AA_u-12" style="rounded=1;whiteSpace=wrap;html=1;" value="appointment booking" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-19" edge="1" parent="LPX62Oq5mwzAFPM4AA_u-12" source="LPX62Oq5mwzAFPM4AA_u-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="LPX62Oq5mwzAFPM4AA_u-18" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-16" parent="LPX62Oq5mwzAFPM4AA_u-12" style="whiteSpace=wrap;html=1;rounded=1;" value="agreement creation" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-18" parent="LPX62Oq5mwzAFPM4AA_u-12" style="rounded=1;whiteSpace=wrap;html=1;" value="registration" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-22" edge="1" parent="LPX62Oq5mwzAFPM4AA_u-12" source="LPX62Oq5mwzAFPM4AA_u-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="LPX62Oq5mwzAFPM4AA_u-21" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-20" parent="LPX62Oq5mwzAFPM4AA_u-12" style="rounded=1;whiteSpace=wrap;html=1;" value="Agent Allocation" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-24" edge="1" parent="LPX62Oq5mwzAFPM4AA_u-12" source="LPX62Oq5mwzAFPM4AA_u-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="LPX62Oq5mwzAFPM4AA_u-16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LPX62Oq5mwzAFPM4AA_u-21" parent="LPX62Oq5mwzAFPM4AA_u-12" style="whiteSpace=wrap;html=1;rounded=1;" value="property finalization &amp;amp; amt negotiation" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="320" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

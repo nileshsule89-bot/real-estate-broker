@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: real-estate-broker-agent
+    env: python
+    plan: free
+    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        value: sqlite:///./real_estate.db
+      - key: WHATSAPP_VERIFY_TOKEN
+        generateValue: true
