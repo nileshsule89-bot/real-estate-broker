@@ -5,5 +5,7 @@ pydantic
 pydantic-settings
 python-dotenv
 httpx
+openai
+openai-agents
 gradio
 pytest

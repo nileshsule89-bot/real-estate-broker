@@ -121,9 +121,11 @@ def stub_external_services(monkeypatch) -> None:
             },
         ]
 
-    monkeypatch.setattr("app.services.agent_service.extract_preferences_with_llm", fake_extract_preferences_with_llm)
+    monkeypatch.setattr("app.services.broker_agent.is_agent_configured", lambda: False)
+    monkeypatch.setattr("app.services.broker_agent.extract_preferences_with_agent", fake_extract_preferences_with_llm)
+    monkeypatch.setattr("app.services.broker_agent.generate_reply_with_agent", fake_generate_reply_with_llm)
     monkeypatch.setattr("app.services.agent_service.generate_reply_with_llm", fake_generate_reply_with_llm)
-    monkeypatch.setattr("app.services.agent_service.search_real_properties", fake_search_real_properties)
+    monkeypatch.setattr("app.services.broker_tools.search_real_properties", fake_search_real_properties)
 
 
 def test_health_endpoint() -> None:

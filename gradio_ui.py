@@ -148,13 +148,94 @@ body, .gradio-container {
 }
 
 #composer-row {
-  align-items: center;
-  gap: 10px;
+  --composer-size: clamp(44px, 11vmin, 56px);
+  --composer-icon: clamp(18px, 4.8vmin, 24px);
+  --composer-pad-x: clamp(12px, 3.2vmin, 18px);
+  --composer-pad-y: clamp(10px, 2.6vmin, 14px);
+  --composer-font: clamp(0.95rem, 2.8vmin, 1rem);
+  align-items: flex-end;
+  gap: clamp(6px, 1.8vmin, 10px);
   margin-top: 16px;
 }
 
+#attach-btn,
+#send-btn {
+  flex: 0 0 auto;
+  align-self: flex-end;
+  min-width: 0 !important;
+  width: var(--composer-size) !important;
+  max-width: var(--composer-size) !important;
+}
+
+#attach-btn > .wrap,
+#attach-btn > label,
+#attach-btn button,
+#send-btn > .wrap,
+#send-btn button {
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  min-width: var(--composer-size) !important;
+  max-width: var(--composer-size) !important;
+  width: var(--composer-size) !important;
+  height: var(--composer-size) !important;
+  min-height: var(--composer-size) !important;
+  max-height: var(--composer-size) !important;
+  padding: 0 !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: none !important;
+}
+
+#attach-btn button,
+#attach-btn label {
+  background: transparent !important;
+  border: 1px solid #3a3a3a !important;
+  color: #ffffff !important;
+  font-size: var(--composer-icon) !important;
+  line-height: 1 !important;
+}
+
+#attach-btn button:hover {
+  background: #1a1a1a !important;
+  border-color: #4a4a4a !important;
+}
+
+#attach-btn .file-preview,
+#attach-btn .file-name,
+#attach-btn .upload-text {
+  display: none !important;
+}
+
+#send-btn button {
+  background: #25d366 !important;
+  border: none !important;
+  color: #ffffff !important;
+}
+
+#send-btn button:hover {
+  background: #20bd5a !important;
+}
+
+#send-btn button::before {
+  content: "";
+  display: block;
+  width: var(--composer-icon);
+  height: var(--composer-icon);
+  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M2.01 21 23 12 2.01 3 2 10l15 2-15 2z'/%3E%3C/svg%3E");
+}
+
+#send-btn button span,
+#send-btn .icon,
+#send-btn button svg {
+  display: none !important;
+}
+
 #composer {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  align-self: flex-end;
 }
 
 #composer > .wrap,
@@ -163,13 +244,21 @@ body, .gradio-container {
   background: transparent !important;
 }
 
+#composer > .wrap {
+  width: 100% !important;
+}
+
 #composer textarea {
-  min-height: 56px !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: var(--composer-size) !important;
   border-radius: 999px !important;
   color: #ffffff !important;
   background: #111111 !important;
   border: 1px solid #2b2b2b !important;
-  padding: 14px 18px !important;
+  padding: var(--composer-pad-y) var(--composer-pad-x) !important;
+  font-size: var(--composer-font) !important;
+  line-height: 1.35 !important;
 }
 
 #composer textarea::placeholder {
@@ -199,6 +288,8 @@ footer,
   }
 
   #composer-row {
+    --composer-size: clamp(42px, 12vw, 52px);
+    --composer-icon: clamp(17px, 5vw, 22px);
     margin-top: 12px;
   }
 }
@@ -305,28 +396,52 @@ def create_demo() -> gr.Blocks:
             )
 
             with gr.Row(elem_id="composer-row"):
+                images = gr.UploadButton(
+                    "+",
+                    file_count="multiple",
+                    file_types=["image"],
+                    scale=0,
+                    min_width=0,
+                    elem_id="attach-btn",
+                )
                 msg = gr.Textbox(
                     show_label=False,
-                    placeholder="Type a message and press Enter",
+                    placeholder="Message",
                     lines=1,
                     max_lines=4,
                     scale=1,
                     elem_id="composer",
                 )
-                images = gr.File(
-                    file_count="multiple",
-                    file_types=["image"],
-                    show_label=False,
+                send_btn = gr.Button(
+                    "",
                     scale=0,
+                    min_width=0,
+                    elem_id="send-btn",
                 )
+
+        submit_inputs = [msg, images, chatbot]
+        submit_outputs = [chatbot, msg, pending_message, pending_images, images]
 
         submit_event = msg.submit(
             _append_user_message,
-            [msg, images, chatbot],
-            [chatbot, msg, pending_message, pending_images, images],
+            submit_inputs,
+            submit_outputs,
             show_progress="hidden",
         )
         submit_event.then(
+            _append_assistant_reply,
+            [chatbot, pending_message, pending_images, session_phone],
+            [chatbot, pending_message, pending_images],
+            show_progress="hidden",
+        )
+
+        send_event = send_btn.click(
+            _append_user_message,
+            submit_inputs,
+            submit_outputs,
+            show_progress="hidden",
+        )
+        send_event.then(
             _append_assistant_reply,
             [chatbot, pending_message, pending_images, session_phone],
             [chatbot, pending_message, pending_images],
